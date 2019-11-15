@@ -22,7 +22,7 @@
       <h5 class="blue-text">
         <strong>{{blogObj.createdBy}}</strong>
       </h5>
-      <mdb-card-text>{{blogObj.description}}</mdb-card-text>
+      <mdb-card-text class="text1">{{blogObj.description}}</mdb-card-text>
       <a class="px-2 fa-lg tw-ic">
         <mdb-icon fab icon="linkedin" />
       </a>
@@ -89,5 +89,16 @@ export default {
   max-height: 200px;
   max-width: 350px;
   min-width: 350px;
+}
+
+.text1 {
+  overflow: hidden;
+  min-height: 35px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;
+  max-height: 32px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 </style>

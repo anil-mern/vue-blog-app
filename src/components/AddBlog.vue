@@ -95,18 +95,18 @@ export default {
           createdBy: this.blogData.author
         };
 
-        console.log("bodyObj-------", bodyObj);
-
-        fetch(url, {
-          method: "post",
-          body: JSON.stringify(bodyObj)
-        })
-          .then(response => {
+        this.$http.post(url, bodyObj).then(
+          response => {
             console.log("blog added successfully");
             this.modal = false;
             return response.json();
-          })
-          .catch(() => console.log("error while posting the blog"));
+          },
+          error => {
+            console.log("error while posting the blog: ", error);
+          }
+        );
+      } else {
+        console.log("missing required fields");
       }
     },
 

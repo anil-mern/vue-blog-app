@@ -2,9 +2,12 @@
   <div class="h-500px">
     <sub-header></sub-header>
     <mdb-container>
-      <h1>{{ msg }}</h1>
+      <!-- <h1>{{ msg }}</h1> -->
       <mdb-row>
-        <mdb-col md="4" class="m-2" v-for="(blogItem, index) in blogData">
+        <div class="m-auto" v-if="error">
+          <h3 v-if="error">{{error.message}}</h3>
+        </div>
+        <mdb-col md="4" class="m-b-5" v-for="(blogItem, index) in blogData">
           <blog-card :blogObj="blogItem" :itemIndex="`img${index}`"></blog-card>
         </mdb-col>
       </mdb-row>
@@ -31,22 +34,29 @@ export default {
   },
   data: function(params) {
     return {
-      blogData: {}
+      blogData: {},
+      error: null
     };
   },
   props: {
     msg: String
   },
   created() {
+    this.error = null;
     const url = "https://bomma-app-1.herokuapp.com/get-blog";
-    fetch(url)
-      .then(response => response.json())
-      .then(blogs => {
-        this.blogData = blogs.blog;
-      })
-      .catch(() =>
-        console.log("Can’t access " + url + " response. Blocked by browser?")
-      );
+
+    this.$http.get(url).then(
+      response => {
+        this.blogData = response.body.blog;
+      },
+      error => {
+        console.log("error: ", error);
+        this.error = {
+          status: 404,
+          message: "unable to fetch data from server, please check the server"
+        };
+      }
+    );
   }
 };
 </script>
@@ -55,5 +65,13 @@ export default {
 <style scoped>
 .h-500px {
   min-height: 500px;
+}
+
+.m-b-5 {
+  margin-bottom: 10px;
+}
+
+.m-auto {
+  margin: auto;
 }
 </style>
