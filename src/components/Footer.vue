@@ -11,7 +11,7 @@
                 <span slot="tip">Google Sheets</span>
                 <i slot="reference" class="far fa-file-powerpoint m-l-sm"></i>
               </mdb-tooltip>
-              <a target="_" href="https://github.com/yugimamidi/44-563-Sec-02-6-VueJs">
+              <a target="_" href="https://github.com/anil-bomma/vue-blog-app">
                 <mdb-tooltip material email trigger="hover" :options="{placement: 'left'}">
                   <span slot="tip">GitHub Source</span>
                   <i id="github" slot="reference" class="fab fa-github-square m-l-sm"></i>
