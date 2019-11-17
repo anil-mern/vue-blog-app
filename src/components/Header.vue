@@ -16,13 +16,13 @@ import {
     mdbNavbar,
     mdbNavbarBrand,
     mdbNavbarToggler,
-    mdbNavbarNav,
-    mdbNavItem,
-    mdbDropdown,
-    mdbDropdownMenu,
-    mdbDropdownToggle,
-    mdbInput,
-    mdbDropdownItem
+    mdbNavbarNav
+    // mdbNavItem,
+    // mdbDropdown,
+    // mdbDropdownMenu,
+    // mdbDropdownToggle,
+    // mdbInput,
+    // mdbDropdownItem
 } from "mdbvue";
 
 export default {
@@ -31,14 +31,14 @@ export default {
         mdbNavbar,
         mdbNavbarBrand,
         mdbNavbarToggler,
-        mdbNavbarNav,
-        mdbNavItem,
-        mdbDropdown,
-        mdbDropdownMenu,
-        mdbDropdownToggle,
-        mdbDropdownItem,
-        mdbInput,
-    // mdbBtn
+        mdbNavbarNav
+        // mdbNavItem,
+        // mdbDropdown,
+        // mdbDropdownMenu,
+        // mdbDropdownToggle,
+        // mdbDropdownItem,
+        // mdbInput,
+        // mdbBtn
     }
 };
 </script>
