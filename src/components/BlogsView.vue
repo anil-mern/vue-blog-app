@@ -2,12 +2,11 @@
   <div class="h-500px">
     <sub-header></sub-header>
     <mdb-container>
-      <!-- <h1>{{ msg }}</h1> -->
       <mdb-row>
         <div class="m-auto" v-if="error">
           <h3 v-if="error">{{error.message}}</h3>
         </div>
-        <mdb-col md="4" class="m-b-5" v-for="(blogItem, index) in blogData">
+        <mdb-col md="4" class="m-b-5" v-for="(blogItem, index) in blogData" :key="blogItem.id">
           <blog-card :blogObj="blogItem" :itemIndex="`img${index}`"></blog-card>
         </mdb-col>
       </mdb-row>
@@ -24,40 +23,40 @@ import BlogCard from "./BlogCard.vue";
 // console.log("blogJson", blogJson);
 
 export default {
-  name: "BlogsView",
-  components: {
-    "mdb-container": mdbContainer,
-    "mdb-row": mdbRow,
-    "mdb-col": mdbCol,
-    "blog-card": BlogCard,
-    "sub-header": SubHeader
-  },
-  data: function(params) {
-    return {
-      blogData: {},
-      error: null
-    };
-  },
-  props: {
-    msg: String
-  },
-  created() {
-    this.error = null;
-    const url = "https://bomma-app-1.herokuapp.com/get-blog";
-
-    this.$http.get(url).then(
-      response => {
-        this.blogData = response.body.blog;
-      },
-      error => {
-        console.log("error: ", error);
-        this.error = {
-          status: 404,
-          message: "unable to fetch data from server, please check the server"
+    name: "BlogsView",
+    components: {
+        "mdb-container": mdbContainer,
+        "mdb-row": mdbRow,
+        "mdb-col": mdbCol,
+        "blog-card": BlogCard,
+        "sub-header": SubHeader
+    },
+    data(params) {
+        return {
+            blogData: {},
+            error: null
         };
-      }
-    );
-  }
+    },
+    props: {
+        msg: String
+    },
+    created() {
+        this.error = null;
+        const url = "https://bomma-app-1.herokuapp.com/get-blog";
+
+        this.$http.get(url).then(
+            response => {
+                this.blogData = response.body.blog;
+            },
+            error => {
+                console.log("error: ", error);
+                this.error = {
+                    status: 404,
+                    message: "unable to fetch data from server, please check the server"
+                };
+            }
+        );
+    }
 };
 </script>
 

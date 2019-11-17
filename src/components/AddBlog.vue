@@ -49,21 +49,6 @@
 
 <script>
 import {
-  mdbModal,
-  mdbModalHeader,
-  mdbModalTitle,
-  mdbModalBody,
-  mdbInput,
-  mdbTextarea,
-  mdbModalFooter,
-  mdbBtn
-} from "mdbvue";
-
-import blogJson from "../data/blog.json";
-
-export default {
-  name: "AddBlog",
-  components: {
     mdbModal,
     mdbModalHeader,
     mdbModalTitle,
@@ -72,49 +57,62 @@ export default {
     mdbTextarea,
     mdbModalFooter,
     mdbBtn
-  },
-  data() {
-    return {
-      modal: false,
-      blogData: {}
-    };
-  },
-  methods: {
+} from "mdbvue";
+
+export default {
+    name: "AddBlog",
+    components: {
+        mdbModal,
+        mdbModalHeader,
+        mdbModalTitle,
+        mdbModalBody,
+        mdbInput,
+        mdbTextarea,
+        mdbModalFooter,
+        mdbBtn
+    },
+    data() {
+        return {
+            modal: false,
+            blogData: {}
+        };
+    },
+    methods: {
     // don't use () => {} to create function as it create new this, then you can't access data variable inside methods
-    saveBlog() {
-      if (
-        this.blogData.title &&
+        saveBlog() {
+            if (
+                this.blogData.title &&
         this.blogData.author &&
         this.blogData.blogContent
-      ) {
-        const url = "https://bomma-app-1.herokuapp.com/save-blog";
+            ) {
+                const url = "https://bomma-app-1.herokuapp.com/save-blog";
 
-        let bodyObj = {
-          title: this.blogData.title,
-          description: this.blogData.blogContent,
-          createdBy: this.blogData.author
-        };
+                let bodyObj = {
+                    title: this.blogData.title,
+                    description: this.blogData.blogContent,
+                    createdBy: this.blogData.author
+                };
 
-        this.$http.post(url, bodyObj).then(
-          response => {
-            console.log("blog added successfully");
-            this.modal = false;
-            return response.json();
-          },
-          error => {
-            console.log("error while posting the blog: ", error);
-          }
-        );
-      } else {
-        console.log("missing required fields");
-      }
-    },
+                this.$http.post(url, bodyObj).then(
+                    response => {
+                        console.log("blog added successfully");
+                        this.modal = false;
+                        return response.json();
+                    },
+                    error => {
+                        console.log("error while posting the blog: ", error);
+                    }
+                );
+            } else {
+                console.log("missing required fields");
+            }
+        },
 
-    checkForm(event) {
-      event.preventDefault();
-      event.target.classList.add("was-validated");
+        checkForm(event) {
+            event.preventDefault();
+            event.target.classList.add("was-validated");
+        }
     }
-  }
 };
 </script>
 

@@ -16,10 +16,10 @@
 import AddBlog from "./AddBlog";
 
 export default {
-  name: "SubHeader",
-  components: {
-    "add-blog": AddBlog
-  }
+    name: "SubHeader",
+    components: {
+        "add-blog": AddBlog
+    }
 };
 </script>
 

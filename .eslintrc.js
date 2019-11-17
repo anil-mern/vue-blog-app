@@ -10,8 +10,8 @@ module.exports = {
     'parserOptions': {
         'ecmaVersion': 7,
         'ecmaFeatures': {
-            'impliedStrict': true,
-            'jsx': true // just in case?
+            'impliedStrict': true
+            //'jsx': true // just in case?
         },
         'sourceType': 'module'
     },
@@ -21,7 +21,8 @@ module.exports = {
         'google': true
     },
     'plugins': [
-        'html', 'vue'
+        // - 'html',
+        'vue'
     ],
     'settings': {
         'html/html-extensions': [
@@ -87,7 +88,7 @@ module.exports = {
         'id-blacklist': 'error',
         'id-length': 'off',
         'id-match': 'error',
-        'indent': ['error', 2, { "SwitchCase": 1 }],
+        'indent': ['error', 4, { "SwitchCase": 1 }],
         'init-declarations': 'off',
         'jsx-quotes': 'off',
         'key-spacing': 'off',
@@ -123,7 +124,7 @@ module.exports = {
         'no-bitwise': 'error',
         'no-caller': 'error',
         'no-catch-shadow': 'error',
-        'no-confusing-arrow': ['error', {'allowParens': true}],
+        'no-confusing-arrow': ['error', { 'allowParens': true }],
         'no-continue': 'error',
         'no-div-regex': 'error',
         'no-duplicate-imports': 'error',
@@ -202,7 +203,7 @@ module.exports = {
         'no-undefined': 'warn',
         'no-unmodified-loop-condition': 'error',
         'no-unneeded-ternary': 'error',
-        'no-unused-expressions': ['error', {'allowShortCircuit': true, 'allowTernary': true}],
+        'no-unused-expressions': ['error', { 'allowShortCircuit': true, 'allowTernary': true }],
         'no-use-before-define': 'error',
         'no-useless-call': 'error',
         'no-useless-computed-key': 'error',

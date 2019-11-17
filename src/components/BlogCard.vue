@@ -38,23 +38,8 @@
   </mdb-card>
 </template>
 
-
 <script>
 import {
-  mdbIcon,
-  mdbCard,
-  mdbView,
-  mdbMask,
-  mdbCardImage,
-  mdbCardTitle,
-  mdbCardText,
-  mdbCardFooter,
-  mdbCardBody
-} from "mdbvue";
-
-export default {
-  name: "BlogCard",
-  components: {
     mdbIcon,
     mdbCard,
     mdbView,
@@ -64,23 +49,36 @@ export default {
     mdbCardText,
     mdbCardFooter,
     mdbCardBody
-  },
-  props: {
-    blogObj: {
-      type: Object,
-      required: true
+} from "mdbvue";
+
+export default {
+    name: "BlogCard",
+    components: {
+        mdbIcon,
+        mdbCard,
+        mdbView,
+        mdbMask,
+        mdbCardImage,
+        mdbCardTitle,
+        mdbCardText,
+        mdbCardFooter,
+        mdbCardBody
     },
-    itemIndex: {
-      type: String,
-      required: true
+    props: {
+        blogObj: {
+            type: Object,
+            required: true
+        },
+        itemIndex: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {};
     }
-  },
-  data: function() {
-    return {};
-  }
 };
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

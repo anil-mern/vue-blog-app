@@ -31,14 +31,14 @@
 <script scoped>
 import { mdbFooter, mdbContainer, mdbTooltip, mdbRow, mdbCol } from "mdbvue";
 export default {
-  name: "AppFooter",
-  components: {
-    mdbFooter,
-    mdbContainer,
-    mdbTooltip,
-    mdbRow,
-    mdbCol
-  }
+    name: "AppFooter",
+    components: {
+        mdbFooter,
+        mdbContainer,
+        mdbTooltip,
+        mdbRow,
+        mdbCol
+    }
 };
 </script>
 

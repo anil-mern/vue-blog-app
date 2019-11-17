@@ -13,21 +13,6 @@
 
 <script>
 import {
-  mdbNavbar,
-  mdbNavbarBrand,
-  mdbNavbarToggler,
-  mdbNavbarNav,
-  mdbNavItem,
-  mdbDropdown,
-  mdbDropdownMenu,
-  mdbDropdownToggle,
-  mdbInput,
-  mdbDropdownItem
-} from "mdbvue";
-
-export default {
-  name: "AppHeader",
-  components: {
     mdbNavbar,
     mdbNavbarBrand,
     mdbNavbarToggler,
@@ -36,13 +21,27 @@ export default {
     mdbDropdown,
     mdbDropdownMenu,
     mdbDropdownToggle,
-    mdbDropdownItem,
     mdbInput,
+    mdbDropdownItem
+} from "mdbvue";
+
+export default {
+    name: "AppHeader",
+    components: {
+        mdbNavbar,
+        mdbNavbarBrand,
+        mdbNavbarToggler,
+        mdbNavbarNav,
+        mdbNavItem,
+        mdbDropdown,
+        mdbDropdownMenu,
+        mdbDropdownToggle,
+        mdbDropdownItem,
+        mdbInput,
     // mdbBtn
-  }
+    }
 };
 </script>
-
 
 <style scoped>
 .m-l-5 {
