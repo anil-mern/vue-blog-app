@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
+import VueLodash from 'vue-lodash'
 import Routes from './routers/routes'
 
 import BootstrapVue from 'bootstrap-vue'
@@ -28,6 +29,7 @@ Vue.config.errorHandler = function (err, vm, info) {
 
 Vue.use(BootstrapVue);
 Vue.use(VueResource);
+Vue.use(VueLodash);
 Vue.use(VueRouter);
 
 const router = new VueRouter({

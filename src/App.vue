@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <blog-header></blog-header>
-    <!-- <blog-view></blog-view> -->
     <router-view></router-view>
     <blog-footer></blog-footer>
   </div>
@@ -9,14 +8,12 @@
 
 <script>
 import Header from "./components/Header.vue";
-// import BlogsView from "./components/BlogsView.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
     name: "app",
     components: {
         "blog-header": Header,
-        // "blog-view": BlogsView,
         "blog-footer": Footer
     }
 };

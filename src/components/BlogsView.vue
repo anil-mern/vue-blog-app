@@ -1,6 +1,8 @@
 <template>
   <div class="h-500px">
-    <sub-header></sub-header>
+    <sub-header v-bind:breadcrums="breadcrums"></sub-header>
+    <loader-view v-bind:loading="loading"></loader-view>
+    
     <mdb-container>
       <mdb-row>
         <div class="m-auto" v-if="error">
@@ -17,10 +19,8 @@
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import SubHeader from "./SubHeader.vue";
+import LoaderView from "./LoaderView.vue";
 import BlogCard from "./BlogCard.vue";
-// import blogJson from "../data/blog.json";
-
-// console.log("blogJson", blogJson);
 
 export default {
     name: "BlogsView",
@@ -28,12 +28,20 @@ export default {
         "mdb-container": mdbContainer,
         "mdb-row": mdbRow,
         "mdb-col": mdbCol,
+        "loader-view": LoaderView,
         "blog-card": BlogCard,
         "sub-header": SubHeader
     },
     data(params) {
         return {
             blogData: {},
+            loading: true,
+            breadcrums: [
+                {
+                    path: "/",
+                    name: "Home"
+                }
+            ],
             error: null
         };
     },
@@ -47,6 +55,7 @@ export default {
         this.$http.get(url).then(
             response => {
                 this.blogData = response.body.blog;
+                this.loading = false;
             },
             error => {
                 console.log("error: ", error);
@@ -54,6 +63,7 @@ export default {
                     status: 404,
                     message: "unable to fetch data from server, please check the server"
                 };
+                this.loading = false;
             }
         );
     }

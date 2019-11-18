@@ -4,7 +4,7 @@
     <mdb-view hover cascade>
       <!-- https://mdbootstrap.com/img/Photos/Others/photo6.jpg -->
 
-      <a href="#!">
+        <router-link :to="'/blog-details/'+blogObj.id" exact>
         <!-- <mdb-card-image src="img1" alt="blog-image" class="img-thumbnail img-responsive img-card"></mdb-card-image> -->
         <img
           :src="require(`../assets/blog-image.png`)"
@@ -12,7 +12,7 @@
           class="img-thumbnail img-responsive img-card"
         />
         <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
-      </a>
+        </router-link>
     </mdb-view>
     <mdb-card-body class="text-center pb-0" cascade>
       <mdb-card-title>
@@ -32,7 +32,7 @@
       <a class="px-2 fa-lg fb-ic">
         <mdb-icon fab icon="facebook" />
       </a>
-      <mdb-card-footer class="text-muted mt-4">{{blogObj.time}}</mdb-card-footer>
+      <mdb-card-footer class="text-muted mt-4">{{blogObj.date}}</mdb-card-footer>
       <!-- {{itemIndex}} -->
     </mdb-card-body>
   </mdb-card>

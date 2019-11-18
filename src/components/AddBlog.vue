@@ -97,6 +97,8 @@ export default {
                     response => {
                         console.log("blog added successfully");
                         this.modal = false;
+                        location.reload();
+                        // this.$router.push('/');
                         return response.json();
                     },
                     error => {

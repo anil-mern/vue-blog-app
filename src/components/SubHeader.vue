@@ -2,8 +2,10 @@
   <div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb sub-padding">
-        <li class="breadcrumb-item active">
-          <a href="#">Home</a>
+        <li class="breadcrumb-item" v-for="(breadcrum, index) in breadcrums" :key="breadcrum.path">
+          <a :href="breadcrum.path" v-bind:class="index+1 == breadcrums.length ? {textMuted: true}:'' ">
+            {{breadcrum.name}}
+          </a>
         </li>
         <!-- <li class="breadcrumb-item active" aria-current="page">Library</li> -->
         <add-blog></add-blog>
@@ -19,6 +21,17 @@ export default {
     name: "SubHeader",
     components: {
         "add-blog": AddBlog
+    },
+    props: {
+        breadcrums: {
+            type: Array,
+            required: true
+        }
+    },
+    data(){
+        return {
+            textMuted: true
+        }
     }
 };
 </script>
@@ -28,5 +41,9 @@ export default {
 
 .sub-padding {
   padding: 10px 30px;
+}
+
+.textMuted{
+  color: #6c757d!important;
 }
 </style>
