@@ -2,6 +2,7 @@
 An simple blog app developed using Vue framework were users can add/delete there blog. Main thing to be noted is there is no database to store..!
 
 ## Run local
+- "start": "vue-cli-service serve --open"
 - npm install
 - npm run start
 
