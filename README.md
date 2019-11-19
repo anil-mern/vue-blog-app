@@ -1,4 +1,4 @@
-#[Demo](https://vue-blog-app-deployment.herokuapp.com/#/)
+[Check out the vue-blog-app here](https://vue-blog-app-deployment.herokuapp.com/#/)
 
 # vue-blog-app
 An simple blog app developed using Vue framework were users can add/delete there blog. Main thing to be noted is there is no database to store..!
